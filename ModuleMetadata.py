@@ -1,5 +1,5 @@
 from ModuleAbstract import ModuleAbstract
 
-class ModuleC(ModuleAbstract):
+class ModuleMetadata(ModuleAbstract):
     def which_module(self) -> str:
-        return "Module C"
+        return "Module Métadonnées"

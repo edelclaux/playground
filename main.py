@@ -1,12 +1,12 @@
-from ModuleA import ModuleA
-from ModuleB import ModuleB
-from ModuleC import ModuleC
+from ModuleOcchab import ModuleOcchab
+from ModuleSynthese import ModuleSynthese
+from ModuleMetadata import ModuleMetadata
 
-moduleA = ModuleA()
-print(f"{moduleA.description()}\n")
+module_occhab = ModuleOcchab()
+print(f"{module_occhab.description()}\n")
 
-moduleB = ModuleB()
-print(f"{moduleB.description()}\n")
+module_synthese = ModuleSynthese()
+print(f"{module_synthese.description()}\n")
 
-moduleC = ModuleC()
-print(f"{moduleC.description()}\n")
+module_metadata = ModuleMetadata()
+print(f"{module_metadata.description()}\n")

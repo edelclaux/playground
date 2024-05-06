@@ -17,7 +17,7 @@ Potentiellement un mauvais design d'avoir cette méthode ici. Un parent conscien
 On voudrait surement l'avoir dans une méthode séparée, un manager de module ou quelque chose comme ça.
 
 Diagramme de ce qu'il se passe dans le code.
-> J'ai retiré "ModuleB" pour plus de lisibilité. Cette classe est la soeur de ModuleA, et se comporte exactement de la même manière.
+> J'ai retiré "ModuleSynthese" pour plus de lisibilité. Cette classe est la soeur de ModuleOcchab, et se comporte exactement de la même manière.
 
 ```mermaid
 classDiagram
@@ -25,21 +25,26 @@ classDiagram
 DecoratorAbstract <|-- DecoratorImport
 ModuleAbstract *-- DecoratorAbstract
 
-ModuleAbstract <|-- ModuleA
-DecoratorImport <|-- ModuleA
+ModuleAbstract <|-- ModuleOcchab
+DecoratorImport <|-- ModuleOcchab
 
-ModuleAbstract <|-- ModuleC
+ModuleAbstract <|-- ModuleMetadata
 
 namespace Module {
     class ModuleAbstract{
         +String which_module()*
         +description()
     }
-    class ModuleA {
-        +String import_coucou()
+    class ModuleOcchab {
+        +void process_transient_data()
+        +void check_transient_data()
+        +void import_data_to_destination()
+        +void remove_data_from_destination()
+        +void report_plot()
+        +void compute_bounding_box()
         +String which_module()
     }
-    class ModuleC{
+    class ModuleMetadata{
         +String which_module()
     }
 }
@@ -50,8 +55,12 @@ namespace Decorator {
         +bool is_implemented_in_module(ModuleAbstract module)$
     }
     class DecoratorImport{
-        +String import_coucou()*
-        bool
+        +void process_transient_data()*
+        +void check_transient_data()*
+        +void import_data_to_destination()*
+        +void remove_data_from_destination()*
+        +void report_plot()*
+        +void compute_bounding_box()*
     }
 }
 ```
