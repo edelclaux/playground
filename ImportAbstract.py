@@ -1,10 +1,9 @@
-from ModuleAbstract import ModuleAbstract
-from DecoratorAbstract import DecoratorAbstract
 from abc import ABC, abstractmethod
 
-
-class DecoratorImport(DecoratorAbstract):
-
+class ImportAbstract(ABC):
+    @abstractmethod
+    def which_import(self) -> str:
+        pass
     @abstractmethod
     def process_transient_data(self) -> None:
         pass

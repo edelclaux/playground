@@ -22,39 +22,39 @@ Diagramme de ce qu'il se passe dans le code.
 ```mermaid
 classDiagram
 
-DecoratorAbstract <|-- DecoratorImport
-ModuleAbstract *-- DecoratorAbstract
+ImportAbstract <|-- ImportOcchab
+ModuleAbstract *-- ImportAbstract
 
 ModuleAbstract <|-- ModuleOcchab
-DecoratorImport <|-- ModuleOcchab
+ModuleOcchab *-- ImportOcchab
 
 ModuleAbstract <|-- ModuleMetadata
 
 namespace Module {
     class ModuleAbstract{
         +String which_module()*
+        ImportAbstract _import
         +description()
     }
     class ModuleOcchab {
-        +void process_transient_data()
-        +void check_transient_data()
-        +void import_data_to_destination()
-        +void remove_data_from_destination()
-        +void report_plot()
-        +void compute_bounding_box()
-        +String which_module()
+        +String which_module()*
     }
     class ModuleMetadata{
         +String which_module()
     }
 }
 
-namespace Decorator {
-    class DecoratorAbstract{
-        -ModuleAbstract module
-        +bool is_implemented_in_module(ModuleAbstract module)$
+namespace Import {
+    class ImportAbstract{
+        +void process_transient_data()
+        +void check_transient_data()
+        +void import_data_to_destination()
+        +void remove_data_from_destination()
+        +void report_plot()
+        +void compute_bounding_box()
     }
-    class DecoratorImport{
+
+    class ImportOcchab{
         +void process_transient_data()*
         +void check_transient_data()*
         +void import_data_to_destination()*
