@@ -1,12 +1,15 @@
-from ModuleOcchab import ModuleOcchab
-from ModuleSynthese import ModuleSynthese
-from ModuleMetadata import ModuleMetadata
+from ParserNotFoundError import ParserNotFoundError
+from ImportFacade import ImportFacade
 
-module_occhab = ModuleOcchab()
-print(f"{module_occhab.description()}\n")
+files = ["fichier.csv", "fichier.hop", "fichier.geojson"]
 
-module_synthese = ModuleSynthese()
-print(f"{module_synthese.description()}\n")
-
-module_metadata = ModuleMetadata()
-print(f"{module_metadata.description()}\n")
+for file in files:
+    print("\n-- ---------------------------------------------------------------")
+    print("-- FILE: " + file)
+    print("-- ---------------------------------------------------------------")
+    try:
+        facade = ImportFacade()
+        facade.upload(file)
+        data = facade.decode()
+    except ParserNotFoundError:
+        print("-- Parser not found")
